@@ -129,13 +129,15 @@ class DynamicLossScale:
 
   def scale(self, tree: T) -> T:
     # usage_logging.log_event(usage_logging.Event.JMP, "DynamicLossScale")
-    return jax.tree_util.tree_map(lambda x: x * self.loss_scale, tree)
+    # fix from  ekuznetsov139
+    return jax.tree_util.tree_map(lambda x: (x * self.loss_scale).astype(x.dtype), tree)
 
   def unscale(self, tree: T) -> T:
     inv_loss_scale = 1 / self.loss_scale
     return jax.tree_util.tree_map(lambda x: x * inv_loss_scale, tree)
 
   def tree_flatten(self) -> Tuple[_Data, _Meta]:
+    # fix from cyprienc
     data = (self.loss_scale, self.counter, self.min_loss_scale)
     meta = (self.period, self.factor)
     return data, meta
