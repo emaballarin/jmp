@@ -45,7 +45,7 @@ to install JAX with the relevant accelerator support.
 Then, install JMP using pip:
 
 ```bash
-$ pip install git+https://github.com/deepmind/jmp
+$ pip install git+https://github.com/clementpoiret/jmp
 ```
 
 ## Examples
@@ -172,7 +172,7 @@ def train_step(params, loss_scale: jmp.LossScale, ...):
   # each step. All loss scales are `PyTree`s.
   return params, loss_scale
 
-loss_scale = jmp.DynamicLossScale(jmp.half_dtype()(2 ** 15))
+loss_scale = jmp.DynamicLossScale(jnp.float32(2**15))
 for _ in range(num_steps):
   params, loss_scale = train_step(params, loss_scale, ...)
 ```
