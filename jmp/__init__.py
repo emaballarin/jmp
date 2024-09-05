@@ -14,17 +14,17 @@
 # ==============================================================================
 """JMP is a Mixed Precision library for JAX."""
 
-from jmp._src.loss_scale import all_finite
-from jmp._src.loss_scale import DynamicLossScale
-from jmp._src.loss_scale import LossScale
-from jmp._src.loss_scale import NoOpLossScale
-from jmp._src.loss_scale import select_tree
-from jmp._src.loss_scale import StaticLossScale
-from jmp._src.policy import cast_to_full
-from jmp._src.policy import cast_to_half
-from jmp._src.policy import get_policy
-from jmp._src.policy import half_dtype
-from jmp._src.policy import Policy
+from jmp.loss_scale import all_finite
+from jmp.loss_scale import DynamicLossScale
+from jmp.loss_scale import LossScale
+from jmp.loss_scale import NoOpLossScale
+from jmp.loss_scale import select_tree
+from jmp.loss_scale import StaticLossScale
+from jmp.policy import cast_to_full
+from jmp.policy import cast_to_half
+from jmp.policy import get_policy
+from jmp.policy import half_dtype
+from jmp.policy import Policy
 
 __version__ = "0.0.6.dev"
 
@@ -41,18 +41,3 @@ __all__ = (
     "half_dtype",
     "Policy",
 )
-
-#  _________________________________________
-# / Please don't use symbols in `_src` they \
-# \ are not part of the JMP public API.     /
-#  -----------------------------------------
-#         \   ^__^
-#          \  (oo)\_______
-#             (__)\       )\/\
-#                 ||----w |
-#                 ||     ||
-#
-try:
-  del _src  # pylint: disable=undefined-variable
-except NameError:
-  pass
