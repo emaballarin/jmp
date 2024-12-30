@@ -45,7 +45,7 @@ wheels = [
 ]
 
 [[package]]
-name = "jamp"
+name = "jmp"
 version = "0.0.6"
 source = { editable = "." }
 dependencies = [

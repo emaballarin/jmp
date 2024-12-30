@@ -1,7 +1,7 @@
 [project]
-name = "jamp"
+name = "jmp"
 version = "0.0.6"
-description = "JAMP is a Mixed Precision library for JAX. Forked from DeepMind's JMP."
+description = "JMP is a Mixed Precision library for JAX. Forked from DeepMind's JMP."
 readme = "README.md"
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
